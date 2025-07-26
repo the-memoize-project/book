@@ -1,0 +1,3 @@
+# Filosofia de Engenharia
+
+Mais do que escrever código, esse projeto é uma forma de pensar engenharia front-end. Esta parte fecha o livro refletindo sobre o processo: como evoluir sem frameworks, como pensar em dependências, como documentar decisões e como entregar software que se sustenta. Aqui está a visão por trás de tudo: formar devs que entendem o que estão fazendo, dominam sua stack e constroem produtos com propósito técnico e estratégico.

@@ -1,0 +1,3 @@
+# Fundamentos e Propósito
+
+Antes de qualquer linha de código, existe uma ideia. E toda ideia precisa de clareza. Nesta primeira parte, vamos explorar o propósito central do Memoize: por que ele existe, qual dor resolve, e por que este projeto é uma afirmação de que “JavaScript puro é suficiente” quando bem arquitetado. Estabelecemos os princípios inegociáveis que guiarão cada decisão técnica — performance, simplicidade, autonomia tecnológica e domínio do front-end como engenharia.

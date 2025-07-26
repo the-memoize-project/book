@@ -1,0 +1,10 @@
+[book]
+authors = ["deMGoncalves"]
+language = "pt"
+multilingual = true
+src = "src"
+title = "O Projeto Memoize"
+
+[output.html]
+default-theme = "light"
+preferred-dark-theme = "navy"

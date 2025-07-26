@@ -1,0 +1,3 @@
+# Extraindo uma Biblioteca
+
+Bons projetos se tornam legados quando viram ferramentas. Nessa etapa, vamos identificar padrões repetíveis dentro do Memoize e extrair uma biblioteca reutilizável. Criamos uma abstração que encapsula nossa arquitetura e oferece uma base sólida para novos apps. Vamos versionar, documentar, publicar no NPM e entender o que faz uma lib ser útil de verdade. Aqui você aprende como uma arquitetura sólida escala além do próprio projeto.

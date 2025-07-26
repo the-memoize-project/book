@@ -1,0 +1,3 @@
+# Implementação na Prática
+
+Aqui a teoria vira prática. Vamos construir o Memoize do zero, passo a passo, mostrando decisões de código como um arquiteto pensa: com intenção. Desde o HTML semântico inicial até a composição dos Web Components, passando por decisões de performance, testes manuais, instrumentação e ergonomia de uso. O objetivo é mostrar como a arquitetura se comporta no mundo real — onde código vive, quebra e precisa evoluir.

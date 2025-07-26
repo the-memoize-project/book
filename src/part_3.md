@@ -1,0 +1,3 @@
+# Arquitetura e Design
+
+Com o terreno mapeado, começa a engenharia. Nesta parte, definimos uma arquitetura baseada em HTML First, Web Components nativos e JavaScript puro. Escolhemos um estilo modular, desacoplado, que privilegia legibilidade e evolutividade. Vamos falar de contratos entre componentes, orquestração de estado, barramento de eventos e outras estratégias que substituem frameworks sem perder poder. É aqui que provamos que “simples” não significa “limitado”.

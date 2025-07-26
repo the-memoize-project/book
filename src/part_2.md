@@ -1,0 +1,3 @@
+# Entendendo o Problema
+
+Arquitetura sem problema real é exercício teórico. Aqui, dissecamos o problema do app Memoize: o que ele precisa fazer, onde estão os desafios reais e quais são os pontos de complexidade que exigem pensamento estratégico. Vamos modelar o domínio, entender fluxos, dependências e levantar hipóteses que vão guiar nossa solução. Essa etapa evita overengineering e garante que o que vamos construir resolve o que precisa — nem mais, nem menos.
