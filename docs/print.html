@@ -1,0 +1,263 @@
+<!DOCTYPE HTML>
+<html lang="pt" class="light sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>O Projeto Memoize</title>
+        <meta name="robots" content="noindex">
+
+
+        <!-- Custom HTML head -->
+
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="favicon.svg">
+        <link rel="shortcut icon" href="favicon.png">
+        <link rel="stylesheet" href="css/variables.css">
+        <link rel="stylesheet" href="css/general.css">
+        <link rel="stylesheet" href="css/chrome.css">
+        <link rel="stylesheet" href="css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" id="highlight-css" href="highlight.css">
+        <link rel="stylesheet" id="tomorrow-night-css" href="tomorrow-night.css">
+        <link rel="stylesheet" id="ayu-highlight-css" href="ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+
+        <!-- Provide site root and default themes to javascript -->
+        <script>
+            const path_to_root = "";
+            const default_light_theme = "light";
+            const default_dark_theme = "navy";
+            window.path_to_searchindex_js = "searchindex.js";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="toc.js"></script>
+    </head>
+    <body>
+    <div id="mdbook-help-container">
+        <div id="mdbook-help-popup">
+            <h2 class="mdbook-help-title">Keyboard shortcuts</h2>
+            <div>
+                <p>Press <kbd>←</kbd> or <kbd>→</kbd> to navigate between chapters</p>
+                <p>Press <kbd>S</kbd> or <kbd>/</kbd> to search in the book</p>
+                <p>Press <kbd>?</kbd> to show this help</p>
+                <p>Press <kbd>Esc</kbd> to hide this help</p>
+            </div>
+        </div>
+    </div>
+    <div id="body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                let theme = localStorage.getItem('mdbook-theme');
+                let sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            const default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? default_dark_theme : default_light_theme;
+            let theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            let sidebar = null;
+            const sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+                sidebar_toggle.checked = false;
+            }
+            if (sidebar === 'visible') {
+                sidebar_toggle.checked = true;
+            } else {
+                html.classList.remove('sidebar-visible');
+            }
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="default_theme">Auto</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search (`/`)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="/ s" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">O Projeto Memoize</h1>
+
+                    <div class="right-buttons">
+                        <a href="print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <div class="search-wrapper">
+                            <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                            <div class="spinner-wrapper">
+                                <i class="fa fa-spinner fa-spin"></i>
+                            </div>
+                        </div>
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="introdução"><a class="header" href="#introdução">Introdução</a></h1>
+<p>Você está cansado da <strong>fadiga de frameworks</strong>? De ver projetos engolidos pela <strong>complexidade artificial</strong>, pela <strong>dívida técnica</strong> crescente e pela constante corrida para aprender a próxima ferramenta "essencial"? Se a sua resposta é sim, este livro foi escrito para você. No coração deste manifesto técnico está o <strong>Memoize</strong>, um aplicativo de flashcards que hoje roda em produção, com usuários reais, e está disponível em: 🔗 <strong><a href="https://memoize.cards">https://memoize.cards</a></strong>.</p>
+<p>O Memoize nasceu de uma motivação íntima: criar uma ferramenta de aprendizado mais leve e eficaz para meu filho. Mas o que começou como uma necessidade pessoal, rapidamente se transformou em um <strong>estudo profundo de engenharia front-end</strong>. É uma prova viva, em produção, de que é possível construir produtos modernos, performáticos e escaláveis utilizando <strong>apenas tecnologias nativas da Web</strong> — HTML, CSS e JavaScript puro. Isso significa: <strong>Sem frameworks. Sem dependências. Sem mágica.</strong></p>
+<p>Este não é um livro de receitas. É a documentação de uma <strong>jornada real</strong>, feita em produção, com decisões de verdade — da concepção à arquitetura, da implementação ao refactor, da dor à descoberta. É um convite para você, seja um <strong>desenvolvedor experiente, um Tech Lead, Staff Engineer, Principal Engineer ou um CTO</strong>, a questionar o status quo e descobrir um caminho para a <strong>simplicidade poderosa e o controle total</strong> sobre sua stack.</p>
+<p>Eu acredito que:</p>
+<blockquote>
+<p>Javascript puro é suficiente — quando bem arquitetado.</p>
+</blockquote>
+<p>Ao longo destas páginas, você não apenas entenderá <em>como</em> o Memoize foi construído, mas <em>como pensar</em> como um arquiteto front-end que busca <strong>impacto real e sustentabilidade</strong>. Isso inclui tomar decisões que escalam sem o peso da dívida técnica, construir sistemas robustos sem as amarras de dependências desnecessárias, focar no que importa de verdade — performance impecável, clareza do código e uma experiência de usuário inigualável — e otimizar recursos e tempo de desenvolvimento, entregando mais valor com menos complexidade. Se você busca uma abordagem que liberte sua equipe das correntes da complexidade artificial do ecossistema moderno, este livro é o seu guia.</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="agradecimentos"><a class="header" href="#agradecimentos">Agradecimentos</a></h1>
+<p>Este livro, e o Projeto Memoize que o inspira, não teriam alcançado este ponto sem o apoio e a motivação das pessoas mais importantes da minha vida.</p>
+<p>Em primeiro lugar, minha gratidão vai para meu filho, <strong>Matheus</strong>. O Memoize nasceu da minha paixão em encontrar uma forma mais leve e eficaz para ele estudar. Vê-lo usando o aplicativo diariamente, sob a supervisão atenta da minha esposa, é a maior recompensa. E a prova de que nossa abordagem funciona é o resultado: <strong>sua média escolar de 9.5 é um testemunho do impacto real</strong> que uma ferramenta bem pensada pode ter.</p>
+<p>À minha amada esposa, <strong>Thais</strong>, meu mais profundo agradecimento não apenas por sua dedicação em supervisionar os estudos do Matheus com o app, mas também por ela mesma ter abraçado o Memoize como uma ferramenta de estudo em sua própria jornada. Seu engajamento solidifica a usabilidade e a eficácia da aplicação.</p>
+<p>E, claro, à nossa pequena <strong>Julia</strong>. Ver nossa filha de 3 anos já começando a interagir e brincar com o aplicativo traz uma alegria imensa e reforça a visão de que o aprendizado pode ser divertido em qualquer idade.</p>
+<p>Vocês são a verdadeira razão por trás de cada linha de código, cada decisão de design e cada página deste livro. É por vocês que o Memoize existe e continua a evoluir.</p>
+<p>Muito obrigado.</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="fundamentos-e-propósito"><a class="header" href="#fundamentos-e-propósito">Fundamentos e Propósito</a></h1>
+<p>Antes de qualquer linha de código, existe uma ideia. E toda ideia precisa de clareza. Nesta primeira parte, vamos explorar o propósito central do Memoize: por que ele existe, qual dor resolve, e por que este projeto é uma afirmação de que “JavaScript puro é suficiente” quando bem arquitetado. Estabelecemos os princípios inegociáveis que guiarão cada decisão técnica — performance, simplicidade, autonomia tecnológica e domínio do front-end como engenharia.</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="entendendo-o-problema"><a class="header" href="#entendendo-o-problema">Entendendo o Problema</a></h1>
+<p>Arquitetura sem problema real é exercício teórico. Aqui, dissecamos o problema do app Memoize: o que ele precisa fazer, onde estão os desafios reais e quais são os pontos de complexidade que exigem pensamento estratégico. Vamos modelar o domínio, entender fluxos, dependências e levantar hipóteses que vão guiar nossa solução. Essa etapa evita overengineering e garante que o que vamos construir resolve o que precisa — nem mais, nem menos.</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="arquitetura-e-design"><a class="header" href="#arquitetura-e-design">Arquitetura e Design</a></h1>
+<p>Com o terreno mapeado, começa a engenharia. Nesta parte, definimos uma arquitetura baseada em HTML First, Web Components nativos e JavaScript puro. Escolhemos um estilo modular, desacoplado, que privilegia legibilidade e evolutividade. Vamos falar de contratos entre componentes, orquestração de estado, barramento de eventos e outras estratégias que substituem frameworks sem perder poder. É aqui que provamos que “simples” não significa “limitado”.</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="implementação-na-prática"><a class="header" href="#implementação-na-prática">Implementação na Prática</a></h1>
+<p>Aqui a teoria vira prática. Vamos construir o Memoize do zero, passo a passo, mostrando decisões de código como um arquiteto pensa: com intenção. Desde o HTML semântico inicial até a composição dos Web Components, passando por decisões de performance, testes manuais, instrumentação e ergonomia de uso. O objetivo é mostrar como a arquitetura se comporta no mundo real — onde código vive, quebra e precisa evoluir.</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="extraindo-uma-biblioteca"><a class="header" href="#extraindo-uma-biblioteca">Extraindo uma Biblioteca</a></h1>
+<p>Bons projetos se tornam legados quando viram ferramentas. Nessa etapa, vamos identificar padrões repetíveis dentro do Memoize e extrair uma biblioteca reutilizável. Criamos uma abstração que encapsula nossa arquitetura e oferece uma base sólida para novos apps. Vamos versionar, documentar, publicar no NPM e entender o que faz uma lib ser útil de verdade. Aqui você aprende como uma arquitetura sólida escala além do próprio projeto.</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="filosofia-de-engenharia"><a class="header" href="#filosofia-de-engenharia">Filosofia de Engenharia</a></h1>
+<p>Mais do que escrever código, esse projeto é uma forma de pensar engenharia front-end. Esta parte fecha o livro refletindo sobre o processo: como evoluir sem frameworks, como pensar em dependências, como documentar decisões e como entregar software que se sustenta. Aqui está a visão por trás de tudo: formar devs que entendem o que estão fazendo, dominam sua stack e constroem produtos com propósito técnico e estratégico.</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="contribuintes"><a class="header" href="#contribuintes">Contribuintes</a></h1>
+<p>Este livro e o Projeto Memoize são o resultado de dedicação e paixão. Neste momento, o principal contribuinte e autor é:</p>
+<ul>
+<li><strong>Cleber de Moraes Gonçalves</strong>
+<ul>
+<li><a href="https://www.linkedin.com/in/demgoncalves/">LinkedIn</a></li>
+<li><a href="https://github.com/deMGoncalves">GitHub</a></li>
+</ul>
+</li>
+</ul>
+<p>Agradeço imensamente a todos que, direta ou indiretamente, apoiaram esta jornada. A construção de software de qualidade é um esforço contínuo, e o feedback e a motivação de cada pessoa são inestimáveis.</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="elasticlunr.min.js"></script>
+        <script src="mark.min.js"></script>
+        <script src="searcher.js"></script>
+
+        <script src="clipboard.min.js"></script>
+        <script src="highlight.js"></script>
+        <script src="book.js"></script>
+
+        <!-- Custom JS scripts -->
+
+        <script>
+        window.addEventListener('load', function() {
+            window.setTimeout(window.print, 100);
+        });
+        </script>
+
+
+    </div>
+    </body>
+</html>
