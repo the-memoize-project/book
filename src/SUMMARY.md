@@ -1,7 +1,7 @@
 # Sumário
 
 # Início
-- [Introdução](./part_0.md)
+- [Introdução](./intro.md)
 - [Agradecimentos](./acknowledgements.md)
 - [Para quem é este livro?](./target_audience.md)
 
