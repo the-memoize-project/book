@@ -176,15 +176,7 @@
 
                 <div id="content" class="content">
                     <main>
-                        <h1 id="introdução"><a class="header" href="#introdução">Introdução</a></h1>
-<p>Você está cansado da <strong>fadiga de frameworks</strong>? De ver projetos engolidos pela <strong>complexidade artificial</strong>, pela <strong>dívida técnica</strong> crescente e pela constante corrida para aprender a próxima ferramenta "essencial"? Se a sua resposta é sim, este livro foi escrito para você. No coração deste manifesto técnico está o <strong>Memoize</strong>, um aplicativo de flashcards que hoje roda em produção, com usuários reais, e está disponível em: 🔗 <strong><a href="https://memoize.cards">https://memoize.cards</a></strong>.</p>
-<p>O Memoize nasceu de uma motivação íntima: criar uma ferramenta de aprendizado mais leve e eficaz para meu filho. Mas o que começou como uma necessidade pessoal, rapidamente se transformou em um <strong>estudo profundo de engenharia front-end</strong>. É uma prova viva, em produção, de que é possível construir produtos modernos, performáticos e escaláveis utilizando <strong>apenas tecnologias nativas da Web</strong> — HTML, CSS e JavaScript puro. Isso significa: <strong>Sem frameworks. Sem dependências. Sem mágica.</strong></p>
-<p>Este não é um livro de receitas. É a documentação de uma <strong>jornada real</strong>, feita em produção, com decisões de verdade — da concepção à arquitetura, da implementação ao refactor, da dor à descoberta. É um convite para você, seja um <strong>desenvolvedor experiente, um Tech Lead, Staff Engineer, Principal Engineer ou um CTO</strong>, a questionar o status quo e descobrir um caminho para a <strong>simplicidade poderosa e o controle total</strong> sobre sua stack.</p>
-<p>Eu acredito que:</p>
-<blockquote>
-<p>Javascript puro é suficiente — quando bem arquitetado.</p>
-</blockquote>
-<p>Ao longo destas páginas, você não apenas entenderá <em>como</em> o Memoize foi construído, mas <em>como pensar</em> como um arquiteto front-end que busca <strong>impacto real e sustentabilidade</strong>. Isso inclui tomar decisões que escalam sem o peso da dívida técnica, construir sistemas robustos sem as amarras de dependências desnecessárias, focar no que importa de verdade — performance impecável, clareza do código e uma experiência de usuário inigualável — e otimizar recursos e tempo de desenvolvimento, entregando mais valor com menos complexidade. Se você busca uma abordagem que liberte sua equipe das correntes da complexidade artificial do ecossistema moderno, este livro é o seu guia.</p>
+                        <h1 id="o-projeto-memoize"><a class="header" href="#o-projeto-memoize">O Projeto Memoize</a></h1>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="agradecimentos"><a class="header" href="#agradecimentos">Agradecimentos</a></h1>
 <p>Este livro, e o Projeto Memoize que o inspira, não teriam alcançado este ponto sem o apoio e a motivação das pessoas mais importantes da minha vida.</p>
 <p>Em primeiro lugar, minha gratidão vai para meu filho, <strong>Matheus</strong>. O Memoize nasceu da minha paixão em encontrar uma forma mais leve e eficaz para ele estudar. Vê-lo usando o aplicativo diariamente, sob a supervisão atenta da minha esposa, é a maior recompensa. E a prova de que nossa abordagem funciona é o resultado: <strong>sua média escolar de 9.5 é um testemunho do impacto real</strong> que uma ferramenta bem pensada pode ter.</p>
@@ -192,6 +184,15 @@
 <p>E, claro, à nossa pequena <strong>Julia</strong>. Ver nossa filha de 3 anos já começando a interagir e brincar com o aplicativo traz uma alegria imensa e reforça a visão de que o aprendizado pode ser divertido em qualquer idade.</p>
 <p>Vocês são a verdadeira razão por trás de cada linha de código, cada decisão de design e cada página deste livro. É por vocês que o Memoize existe e continua a evoluir.</p>
 <p>Muito obrigado.</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="para-quem-é-este-livro"><a class="header" href="#para-quem-é-este-livro">Para quem é este livro?</a></h1>
+<p>Este livro foi cuidadosamente elaborado para uma audiência específica, que busca profundidade, autonomia e um novo olhar sobre a engenharia de software front-end. Se você se encaixa em um dos perfis abaixo, este conteúdo é para você:</p>
+<ul>
+<li><strong>Desenvolvedores Front-end Experientes:</strong> Aqueles que já se sentem presos na complexidade dos frameworks, mas anseiam por dominar a plataforma web de verdade, entender os fundamentos e construir software mais performático e sustentável. Este livro lhe dará as ferramentas e a mentalidade para elevar seu nível técnico.</li>
+<li><strong>Tech Leads e Arquitetos de Software:</strong> Para você que toma decisões cruciais sobre a stack tecnológica. Aqui, você encontrará um estudo de caso prático de como construir sistemas complexos sem frameworks, otimizando performance, manutenibilidade e o custo-benefício de sua equipe. Descubra como justificar e implementar uma arquitetura simples, mas poderosa.</li>
+<li><strong>Staff, Principal e Distinguished Engineers:</strong> Se você busca inovar e influenciar a direção técnica de grandes projetos, este livro oferece uma tese desafiadora e comprovada sobre a eficiência do JavaScript puro e das Web APIs. É um guia para pensar em escalabilidade, reusabilidade e o legado técnico de forma estratégica.</li>
+<li><strong>CTOs e Líderes de Engenharia:</strong> Para os tomadores de decisão que precisam gerenciar orçamentos, produtividade da equipe e a longevidade dos produtos. Este livro propõe uma abordagem que pode reduzir a dívida técnica, acelerar o desenvolvimento, diminuir custos de infraestrutura e garantir a autonomia tecnológica da sua empresa. Entenda como uma arquitetura bem pensada se traduz em valor de negócio.</li>
+</ul>
+<p>Este não é apenas um guia técnico; é um convite para você reimaginar o desenvolvimento front-end e construir o futuro da web com mais intencionalidade e maestria.</p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="fundamentos-e-propósito"><a class="header" href="#fundamentos-e-propósito">Fundamentos e Propósito</a></h1>
 <p>Antes de qualquer linha de código, existe uma ideia. E toda ideia precisa de clareza. Nesta primeira parte, vamos explorar o propósito central do Memoize: por que ele existe, qual dor resolve, e por que este projeto é uma afirmação de que “JavaScript puro é suficiente” quando bem arquitetado. Estabelecemos os princípios inegociáveis que guiarão cada decisão técnica — performance, simplicidade, autonomia tecnológica e domínio do front-end como engenharia.</p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="entendendo-o-problema"><a class="header" href="#entendendo-o-problema">Entendendo o Problema</a></h1>
@@ -204,6 +205,28 @@
 <p>Bons projetos se tornam legados quando viram ferramentas. Nessa etapa, vamos identificar padrões repetíveis dentro do Memoize e extrair uma biblioteca reutilizável. Criamos uma abstração que encapsula nossa arquitetura e oferece uma base sólida para novos apps. Vamos versionar, documentar, publicar no NPM e entender o que faz uma lib ser útil de verdade. Aqui você aprende como uma arquitetura sólida escala além do próprio projeto.</p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="filosofia-de-engenharia"><a class="header" href="#filosofia-de-engenharia">Filosofia de Engenharia</a></h1>
 <p>Mais do que escrever código, esse projeto é uma forma de pensar engenharia front-end. Esta parte fecha o livro refletindo sobre o processo: como evoluir sem frameworks, como pensar em dependências, como documentar decisões e como entregar software que se sustenta. Aqui está a visão por trás de tudo: formar devs que entendem o que estão fazendo, dominam sua stack e constroem produtos com propósito técnico e estratégico.</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="links-úteis"><a class="header" href="#links-úteis">Links úteis</a></h1>
+<p>Para complementar a experiência de leitura e oferecer acesso direto às ferramentas e recursos utilizados no Projeto Memoize, compilamos uma lista de links importantes:</p>
+<ul>
+<li>
+<p><strong>Repositório do Projeto no GitHub:</strong> Explore o código-fonte, acompanhe o desenvolvimento e contribua com o Projeto Memoize.</p>
+<ul>
+<li><a href="https://github.com/the-memoize-project/memoize">GitHub do Projeto Memoize</a></li>
+</ul>
+</li>
+<li>
+<p><strong>Design do Projeto no Figma:</strong> Acesse o protótipo e os arquivos de design UI/UX do Memoize para entender a visão e a interface do aplicativo.</p>
+<ul>
+<li><a href="https://www.figma.com/design/XUEjAD6BwjXNpqPOzwrbsj/Memoize?node-id=0-1&amp;p=f">Figma do Projeto Memoize</a></li>
+</ul>
+</li>
+<li>
+<p><strong>Board de Planejamento no Miro:</strong> Visualize os fluxos, mapas mentais e brainstorms que guiaram o planejamento e a evolução do projeto.</p>
+<ul>
+<li><a href="https://miro.com/app/board/uXjVI4nc62U=/">Miro do Projeto Memoize</a></li>
+</ul>
+</li>
+</ul>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="contribuintes"><a class="header" href="#contribuintes">Contribuintes</a></h1>
 <p>Este livro e o Projeto Memoize são o resultado de dedicação e paixão. Neste momento, o principal contribuinte e autor é:</p>
 <ul>
