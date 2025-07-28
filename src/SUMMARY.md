@@ -1,9 +1,9 @@
 # Sumário
 
 # Início
-
-- [Introdução](./intro.md)
+- [Introdução](./part_0.md)
 - [Agradecimentos](./acknowledgements.md)
+- [Para quem é este livro?](./target_audience.md)
 
 # Capítulos
 
@@ -16,4 +16,5 @@
 
 # Apêndices
 
+- [Links úteis](./useful_links.md)
 - [Contribuintes](./contributors.md)
